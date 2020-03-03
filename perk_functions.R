@@ -74,3 +74,14 @@ summarise_perk_stats <- function(.modifications, .base_deck, .base_attack = 1:5)
     select(base_attack, everything())
   
 }
+
+
+
+summarise_perk_stats2 <- function(my_stats){
+  my_stats %>%
+    summarise_at(-1, mean) %>%
+    ungroup() %>%
+    pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
+    mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
+    arrange(-SR)
+}

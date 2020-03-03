@@ -9,13 +9,7 @@ simulation1 <- c("remove two -1", "remove four 0", "replace two +1 with +2",
                   "replace -2 with 0", "add one +2", "add two rolling +1") %>%
   summarise_perk_stats(base_deck0)
 
-
-simulation1 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
-
+summarise_perk_stats2(simulation1)
 
 #pick remove two -1
 
@@ -26,15 +20,9 @@ simulation2 <- c("remove two -1", "remove four 0", "replace two +1 with +2",
                  "replace -2 with 0", "add one +2", "add two rolling +1") %>%
   summarise_perk_stats(base_deck1)
 
-
-simulation2 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
+summarise_perk_stats2(simulation2)
 
 # pick remove two -1
-
 
 #third perk-------------
 base_deck2 <- modify_deck(base_deck1, "remove two -1")
@@ -43,12 +31,7 @@ simulation3 <- c("remove four 0", "replace two +1 with +2",
                  "replace -2 with 0", "add one +2", "add two rolling +1") %>%
   summarise_perk_stats(base_deck2)
 
-
-simulation3 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
+summarise_perk_stats2(simulation3)
 
 #pick replace -2 with 0
 
@@ -59,12 +42,7 @@ simulation4 <- c("remove four 0", "replace two +1 with +2",
                   "add one +2", "add two rolling +1") %>%
   summarise_perk_stats(base_deck3)
 
-
-simulation4 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
+summarise_perk_stats2(simulation4)
 
 #pick add two rolling +1
 
@@ -75,12 +53,8 @@ simulation5 <- c("remove four 0", "replace two +1 with +2",
                  "add one +2", "add two rolling +1") %>%
   summarise_perk_stats(base_deck4)
 
+summarise_perk_stats2(simulation5)
 
-simulation5 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
 
 #pick add two rolling +1
 
@@ -91,12 +65,7 @@ simulation6 <- c("remove four 0", "replace two +1 with +2",
                  "add one +2") %>%
   summarise_perk_stats(base_deck5)
 
-
-simulation6 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
+summarise_perk_stats2(simulation6)
 
 #pick remove four 0
 
@@ -106,25 +75,17 @@ base_deck6 <- modify_deck(base_deck5, "remove four 0")
 simulation7 <- c("replace two +1 with +2", "add one +2") %>%
   summarise_perk_stats(base_deck6)
 
-simulation7 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
+summarise_perk_stats2(simulation7)
 
 #pick replace two +1 with +2
 
 #eight perk-----------
 base_deck7 <- modify_deck(base_deck6, "replace two +1 with +2")
 
-simulation8 <- c("replace two +1 with +2", "add one +2") %>%
+simulation8 <- c("add one +2") %>%
   summarise_perk_stats(base_deck7)
 
-simulation8 %>% summarise_at(-1, mean) %>%
-  ungroup() %>%
-  pivot_longer(everything(), names_to = c("modification", ".value"), names_pattern = "([^_]*)_([^_]*)$") %>%
-  mutate(SR = mean / sd) %>%  #use Sharpe ratio to decide for best perk
-  arrange(-SR)
+summarise_perk_stats2(simulation8)
 
 #pick add +2 card
 
