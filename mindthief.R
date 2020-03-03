@@ -35,7 +35,7 @@ summarise_perk_stats2(simulation3)
 
 #pick replace -2 with 0
 
-# fouth perk--------------
+#fouth perk--------------
 base_deck3 <- modify_deck(base_deck2, "replace -2 with 0")
 
 simulation4 <- c("remove four 0", "replace two +1 with +2", 
@@ -46,7 +46,7 @@ summarise_perk_stats2(simulation4)
 
 #pick add two rolling +1
 
-# fifth perk--------------
+#fifth perk--------------
 base_deck4 <- modify_deck(base_deck3, "add two rolling +1")
 
 simulation5 <- c("remove four 0", "replace two +1 with +2", 
@@ -58,7 +58,7 @@ summarise_perk_stats2(simulation5)
 
 #pick add two rolling +1
 
-# sixth perk--------------
+#sixth perk--------------
 base_deck5 <- modify_deck(base_deck4, "add two rolling +1")
 
 simulation6 <- c("remove four 0", "replace two +1 with +2", 
@@ -79,7 +79,7 @@ summarise_perk_stats2(simulation7)
 
 #pick replace two +1 with +2
 
-#eight perk-----------
+#eighth perk-----------
 base_deck7 <- modify_deck(base_deck6, "replace two +1 with +2")
 
 simulation8 <- c("add one +2") %>%
